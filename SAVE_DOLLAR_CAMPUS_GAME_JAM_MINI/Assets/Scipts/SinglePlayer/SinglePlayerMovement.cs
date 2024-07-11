@@ -6,6 +6,7 @@ using UnityEngine;
 public class SinglePlayerMovement : MonoBehaviour
 {
     private float horizontal;
+    private float Vertical;
     public float speed;
 
    
@@ -55,10 +56,11 @@ public class SinglePlayerMovement : MonoBehaviour
 
 
         horizontal = Input.GetAxisRaw("Horizontal");
+        Vertical = Input.GetAxisRaw("Vertical");
 
-       
 
-     if (Input.GetButtonDown("Jump")) 
+
+        if (Input.GetButtonDown("Jump")) 
         {
             if (IsGrounded()) 
             {
@@ -108,6 +110,7 @@ public class SinglePlayerMovement : MonoBehaviour
         } 
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        rb.velocity = new Vector2(rb.velocity.x, Vertical * speed);
     }
 
     private bool IsGrounded() 
