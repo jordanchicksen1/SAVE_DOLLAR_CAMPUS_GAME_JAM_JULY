@@ -7,8 +7,15 @@ public class SinglePlayerMovement : MonoBehaviour
 {
     private float horizontal;
     public float speed;
+
+   
+
     public float jumpforce;
+
+    public bool CanDoubleJump;
     public float SecondJumpForce;
+
+
     private bool isFacingRight = true;
     //public bool CanJump = true;
 
@@ -19,6 +26,8 @@ public class SinglePlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private TrailRenderer tr;
+    private Collider2D col2d;
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField] private Transform GroundCheck;
     [SerializeField] private LayerMask GroundLayer;
@@ -28,6 +37,8 @@ public class SinglePlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
+        col2d = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -49,7 +60,7 @@ public class SinglePlayerMovement : MonoBehaviour
                 DoubleJumpAbiltiy = true;
              
             }
-         else if (DoubleJumpAbiltiy) 
+         else if (DoubleJumpAbiltiy && CanDoubleJump) 
             {
                 rb.velocity = new Vector2(rb.velocity.x, SecondJumpForce);
                 DoubleJumpAbiltiy = false;
@@ -69,6 +80,8 @@ public class SinglePlayerMovement : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
+
+       
     }
 
 
@@ -96,11 +109,15 @@ public class SinglePlayerMovement : MonoBehaviour
         localScale.x*= -1f;
         transform.localScale = localScale;
         }
+
+        AblitySwitch();
     }
 
 
-    public bool canDash = true;
+    private bool canDash = true;
     private bool IsDashing;
+
+    public bool DashAbility;
 
     [SerializeField]
     private float DashPower;
@@ -110,21 +127,87 @@ public class SinglePlayerMovement : MonoBehaviour
     private float DashCoolDown;
 
 
+    
+    
+    public bool Fade = false;
+
+
+
+  
+
+
+    [SerializeField]
+    private float FadePower;
+    [SerializeField]
+    private float FadeTime;
+    [SerializeField]
+    private float FadeCoolDown;
+
+
     private IEnumerator Dash()
     {
-        canDash = false;
-        IsDashing = true;
-        float OrigGrav = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(transform.localScale.x * DashPower, 0f);
-        tr.emitting = true;
-        yield return new WaitForSeconds(DashTime);
-        tr.emitting = false;
-        rb.gravityScale = OrigGrav;
-        IsDashing = false;
-        yield return new WaitForSeconds(DashCoolDown);
-        canDash = true;
+        if(DashAbility) 
+        {
+            canDash = false;
+            IsDashing = true;
+            float OrigGrav = rb.gravityScale;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(transform.localScale.x * DashPower, 0f);
+            tr.emitting = true;
+            tr.startColor = Color.red;
+            yield return new WaitForSeconds(DashTime);
+            tr.emitting = false;
+            tr.startColor = Color.red;
+            rb.gravityScale = OrigGrav;
+            IsDashing = false;
+            yield return new WaitForSeconds(DashCoolDown);
+            canDash = true;
+        }
+       
+
+        if (Fade) 
+        {
+            canDash = false;
+            IsDashing = true;
+            col2d.enabled = false;
+            float OrigGrav = rb.gravityScale;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(transform.localScale.x * FadePower, 0f);
+            tr.emitting = true;
+            tr.startColor = Color.white;
+            yield return new WaitForSeconds(FadeTime);
+            tr.emitting = false;
+            tr.endColor = Color.white;
+            rb.gravityScale = OrigGrav;
+            IsDashing = false;
+            col2d.enabled = true;   
+            yield return new WaitForSeconds(FadeCoolDown);
+            canDash = true;
+        }
+    }
+
+   public void AblitySwitch() 
+    {
+    if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            if (DashAbility) 
+            {
+                Debug.Log("switch To Fade");
+                DashAbility = false;
+                Fade = true;
+                return;
+            }
+
+            if (Fade) 
+            {
+                Debug.Log("switch To Dash");
+                Fade = false;
+                DashAbility = true;
+                return;
+            }
+        }
     }
 }
   
+
 
