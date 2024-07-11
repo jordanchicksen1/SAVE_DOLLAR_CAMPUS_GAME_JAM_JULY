@@ -48,6 +48,12 @@ public class SinglePlayerMovement : MonoBehaviour
             return;
         }
 
+        if (IsFading)
+        {
+            return;
+        }
+
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
        
@@ -81,6 +87,10 @@ public class SinglePlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
+        if (Input.GetKeyDown(KeyCode.E) && canFade) 
+        {
+           StartCoroutine (Fade());
+        }
        
     }
 
@@ -91,6 +101,11 @@ public class SinglePlayerMovement : MonoBehaviour
         {
             return;
         }
+
+        if(IsFading) 
+        {
+            return; 
+        } 
 
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
@@ -129,11 +144,12 @@ public class SinglePlayerMovement : MonoBehaviour
 
     
     
-    public bool Fade = false;
+    public bool FadeAbility = false;
 
 
+    private bool canFade = true;
+    private bool IsFading;
 
-  
 
 
     [SerializeField]
@@ -143,7 +159,7 @@ public class SinglePlayerMovement : MonoBehaviour
     [SerializeField]
     private float FadeCoolDown;
 
-
+  
     private IEnumerator Dash()
     {
         if(DashAbility) 
@@ -165,10 +181,15 @@ public class SinglePlayerMovement : MonoBehaviour
         }
        
 
-        if (Fade) 
+        
+    }
+
+    private IEnumerator Fade() 
+    {
+        if (FadeAbility)
         {
-            canDash = false;
-            IsDashing = true;
+            canFade = false;
+            IsFading = true;
             col2d.enabled = false;
             float OrigGrav = rb.gravityScale;
             rb.gravityScale = 0f;
@@ -179,10 +200,10 @@ public class SinglePlayerMovement : MonoBehaviour
             tr.emitting = false;
             tr.endColor = Color.white;
             rb.gravityScale = OrigGrav;
-            IsDashing = false;
-            col2d.enabled = true;   
+            IsFading = false;
+            col2d.enabled = true;
             yield return new WaitForSeconds(FadeCoolDown);
-            canDash = true;
+            canFade = true;
         }
     }
 
@@ -194,14 +215,14 @@ public class SinglePlayerMovement : MonoBehaviour
             {
                 Debug.Log("switch To Fade");
                 DashAbility = false;
-                Fade = true;
+                FadeAbility = true;
                 return;
             }
 
-            if (Fade) 
+            if (FadeAbility) 
             {
                 Debug.Log("switch To Dash");
-                Fade = false;
+                FadeAbility = false;
                 DashAbility = true;
                 return;
             }
