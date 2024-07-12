@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RobotAi : MonoBehaviour
 {
-    public Transform player;
+    public Transform[] player, player2;
     public float speed = 3.0f;
     public float stoppingDistance = 2.0f;
    // public int damageAmount = 10;
@@ -28,46 +28,53 @@ public class RobotAi : MonoBehaviour
 
     private void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, player[0].position);
         if (distanceToPlayer < stoppingDistance)
         {
-            Vector2 direction = (player.position - transform.position).normalized;
+            Vector2 direction = (player[0].position - transform.position).normalized;
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
 
-       // if (rb.velocity.x > 0)
-       // {
-        //    // Moving right
-         //   spriteRight.SetActive(true);
-         //   spriteLeft.SetActive(false);
-        //    spriteUp.SetActive(false);
-      //      spriteDown.SetActive(false);
-       // }
-       /// else if (rb.velocity.x < 0)
-       // {
-            // Moving left
-          //  spriteRight.SetActive(false);
-         //   spriteLeft.SetActive(true);
-       //     spriteUp.SetActive(false);
-        //    spriteDown.SetActive(false);
-      //  }
+        float distanceToPlayer2 = Vector2.Distance(transform.position, player2[0].position);
+        if (distanceToPlayer2 < stoppingDistance)
+        {
+            Vector2 direction = (player2[0].position - transform.position).normalized;
+            transform.Translate(direction * speed * Time.deltaTime, Space.World);
+        }
 
-       // if (rb.velocity.y > 0)
-       // {
-            // Moving up
-         //   spriteRight.SetActive(false);
+        // if (rb.velocity.x > 0)
+        // {
+        //    // Moving right
+        //   spriteRight.SetActive(true);
+        //   spriteLeft.SetActive(false);
+        //    spriteUp.SetActive(false);
+        //      spriteDown.SetActive(false);
+        // }
+        /// else if (rb.velocity.x < 0)
+        // {
+        // Moving left
+        //  spriteRight.SetActive(false);
+        //   spriteLeft.SetActive(true);
+        //     spriteUp.SetActive(false);
+        //    spriteDown.SetActive(false);
+        //  }
+
+        // if (rb.velocity.y > 0)
+        // {
+        // Moving up
+        //   spriteRight.SetActive(false);
         //    spriteLeft.SetActive(false);
         //    spriteUp.SetActive(true);
-      //      spriteDown.SetActive(false);
-      //  }
+        //      spriteDown.SetActive(false);
+        //  }
         //else if (rb.velocity.y < 0)
-       // {
+        // {
         //    // Moving down
-         //   spriteRight.SetActive(false);
-         //   spriteLeft.SetActive(false);
-         //   spriteUp.SetActive(false);
+        //   spriteRight.SetActive(false);
+        //   spriteLeft.SetActive(false);
+        //   spriteUp.SetActive(false);
         //    spriteDown.SetActive(true);
-       // }
+        // }
 
         Debug.Log(rb.velocity.x);
         Debug.Log(speed);
