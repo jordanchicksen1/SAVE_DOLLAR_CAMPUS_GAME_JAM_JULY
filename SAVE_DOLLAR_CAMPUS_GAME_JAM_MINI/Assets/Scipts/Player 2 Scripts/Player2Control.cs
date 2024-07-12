@@ -1,38 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class SinglePlayerMovement : MonoBehaviour
+public class PLayer2Control : MonoBehaviour
 {
+    public float speed = 5f; // Movement speed
+
     private float horizontal;
-    private float Vertical;
-    public float speed;
-
-   
-
-    public float jumpforce;
-
-    public bool CanDoubleJump;
-    public float SecondJumpForce;
-
+    private float vertical;
 
     private bool isFacingRight = true;
-    //public bool CanJump = true;
-
-
-    private bool DoubleJumpAbiltiy;
-   
-    
 
     private Rigidbody2D rb;
     private TrailRenderer tr;
     private Collider2D col2d;
     private SpriteRenderer spriteRenderer;
-
-    [SerializeField] private Transform GroundCheck;
-    [SerializeField] private LayerMask GroundLayer;
-  
 
     private void Start()
     {
@@ -44,43 +25,36 @@ public class SinglePlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (IsDashing)
+        if (IsDashing || IsFading)
         {
             return;
         }
 
-        if (IsFading)
+        // Check for key presses and adjust the movement variables accordingly
+        horizontal = 0f;
+        vertical = 0f;
+
+        if (Input.GetKey(KeyCode.Keypad8))
         {
-            return;
+            vertical = 1f;
+        }
+        if (Input.GetKey(KeyCode.Keypad5))
+        {
+            vertical = -1f;
+        }
+        if (Input.GetKey(KeyCode.Keypad4))
+        {
+            horizontal = -1f;
+        }
+        if (Input.GetKey(KeyCode.Keypad6))
+        {
+            horizontal = 1f;
         }
 
-
-        horizontal = Input.GetAxisRaw("Horizontal");
-        Vertical = Input.GetAxisRaw("Vertical");
-
-
-
-        if (Input.GetButtonDown("Jump")) 
-        {
-            if (IsGrounded()) 
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpforce); 
-                DoubleJumpAbiltiy = true;
-             
-            }
-         else if (DoubleJumpAbiltiy && CanDoubleJump) 
-            {
-                rb.velocity = new Vector2(rb.velocity.x, SecondJumpForce);
-                DoubleJumpAbiltiy = false;
-              
-            }
-        }
-
-     if(Input.GetButtonDown("Jump") && rb.velocity.y > 0f ) 
-        {
-        rb.velocity = new Vector2 (rb.velocity.x, rb.velocity.y * 0.6f);
-        }
-
+        // Normalize the direction to ensure consistent movement speed
+        Vector2 moveDirection = new Vector2(horizontal, vertical).normalized;
+        horizontal = moveDirection.x;
+        vertical = moveDirection.y;
 
         Flip();
 
@@ -89,48 +63,37 @@ public class SinglePlayerMovement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && canFade) 
+        if (Input.GetKeyDown(KeyCode.E) && canFade)
         {
-           StartCoroutine (Fade());
+            StartCoroutine(Fade());
         }
-       
-    }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            AbilitySwitch();
+        }
+    }
 
     private void FixedUpdate()
     {
-        if (IsDashing)
+        if (IsDashing || IsFading)
         {
             return;
         }
 
-        if(IsFading) 
-        {
-            return; 
-        } 
-
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        rb.velocity = new Vector2(rb.velocity.x, Vertical * speed);
+        rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
-    private bool IsGrounded() 
+    private void Flip()
     {
-      return Physics2D.OverlapCircle(GroundCheck.position, 0.2f, GroundLayer);
-    }
-
-    private void Flip() 
-    {
-    if (isFacingRight && horizontal <0f || !isFacingRight && horizontal >0f) 
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
-        isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x*= -1f;
-        transform.localScale = localScale;
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
-
-        AblitySwitch();
     }
-
 
     private bool canDash = true;
     private bool IsDashing;
@@ -144,16 +107,10 @@ public class SinglePlayerMovement : MonoBehaviour
     [SerializeField]
     private float DashCoolDown;
 
-
-    
-    
     public bool FadeAbility = false;
-
 
     private bool canFade = true;
     private bool IsFading;
-
-
 
     [SerializeField]
     private float FadePower;
@@ -162,10 +119,9 @@ public class SinglePlayerMovement : MonoBehaviour
     [SerializeField]
     private float FadeCoolDown;
 
-  
     private IEnumerator Dash()
     {
-        if(DashAbility) 
+        if (DashAbility)
         {
             canDash = false;
             IsDashing = true;
@@ -176,18 +132,14 @@ public class SinglePlayerMovement : MonoBehaviour
             tr.startColor = Color.red;
             yield return new WaitForSeconds(DashTime);
             tr.emitting = false;
-            tr.startColor = Color.red;
             rb.gravityScale = OrigGrav;
             IsDashing = false;
             yield return new WaitForSeconds(DashCoolDown);
             canDash = true;
         }
-       
-
-        
     }
 
-    private IEnumerator Fade() 
+    private IEnumerator Fade()
     {
         if (FadeAbility)
         {
@@ -201,7 +153,6 @@ public class SinglePlayerMovement : MonoBehaviour
             tr.startColor = Color.white;
             yield return new WaitForSeconds(FadeTime);
             tr.emitting = false;
-            tr.endColor = Color.white;
             rb.gravityScale = OrigGrav;
             IsFading = false;
             col2d.enabled = true;
@@ -210,28 +161,19 @@ public class SinglePlayerMovement : MonoBehaviour
         }
     }
 
-   public void AblitySwitch() 
+    public void AbilitySwitch()
     {
-    if (Input.GetKeyDown(KeyCode.R)) 
+        if (DashAbility)
         {
-            if (DashAbility) 
-            {
-                Debug.Log("switch To Fade");
-                DashAbility = false;
-                FadeAbility = true;
-                return;
-            }
-
-            if (FadeAbility) 
-            {
-                Debug.Log("switch To Dash");
-                FadeAbility = false;
-                DashAbility = true;
-                return;
-            }
+            Debug.Log("Switch to Fade");
+            DashAbility = false;
+            FadeAbility = true;
+        }
+        else if (FadeAbility)
+        {
+            Debug.Log("Switch to Dash");
+            FadeAbility = false;
+            DashAbility = true;
         }
     }
 }
-  
-
-
