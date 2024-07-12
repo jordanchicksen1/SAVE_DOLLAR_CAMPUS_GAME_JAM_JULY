@@ -75,7 +75,6 @@ public class RobotAi : MonoBehaviour
         //    spriteDown.SetActive(true);
         // }
 
-        Debug.Log(rb.velocity.x);
-        Debug.Log(speed);
+       
     }
 }
