@@ -4,30 +4,48 @@ using UnityEngine;
 
 public class Zone : MonoBehaviour
 {
-    public float speed = 1f;
+    [SerializeField] float speed = 1f;
     public float maxScale = 5f;
-    public float minScale = 0f;
+    public float minScale = 1f;
 
-    Vector2 temp;
-   
+    public Vector2 temp;
+    public bool increasing = true;
 
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        temp = transform.localScale;
     }
 
     void Update()
     {
-        if (temp.x < maxScale  &&  temp.y < minScale)
+        if (increasing)
         {
-            temp = transform.localScale;
-            temp.x -= Time.deltaTime * speed;
-            temp.y -= Time.deltaTime * speed;
-            transform.localScale = temp;
+            if (temp.x < maxScale && temp.y < maxScale)
+            {
+                temp.x += Time.deltaTime * speed;
+                temp.y += Time.deltaTime * speed;
+            }
+            else
+            {
+                increasing = false;
+            }
         }
-      
+        else
+        {
+            if (temp.x > minScale && temp.y > minScale)
+            {
+                temp.x -= Time.deltaTime * speed;
+                temp.y -= Time.deltaTime * speed;
+            }
+            else
+            {
+                increasing = true;
+            }
+        }
 
+        transform.localScale = temp;
     }
 }
