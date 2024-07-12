@@ -5,26 +5,34 @@ using UnityEngine.InputSystem;
 
 public class Player2Controller : MonoBehaviour
 {
-    private Keyboard Player2Keyboard;
-    [SerializeField]
-    private float speed;
+   public float moveSpeed = 5f; 
 
-    private Vector2 movement;
-    void Start()
-    {
-        Player2Keyboard = InputSystem.devices[1] as Keyboard;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Player2Keyboard != null)
-        {
-            movement.x = (Player2Keyboard.aKey.isPressed ? -1 : 0) + (Player2Keyboard.dKey.isPressed ? 1 : 0);
-            movement.y = (Player2Keyboard.sKey.isPressed ? -1 : 0) + (Player2Keyboard.wKey.isPressed ? 1 : 0);
+        Vector2 moveDirection = Vector2.zero;
 
-            Vector3 move = new Vector3(movement.x * speed * Time.deltaTime, movement.y * speed * Time.deltaTime, 0);
-            transform.Translate(move);
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            moveDirection.y += 1;
         }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            moveDirection.y -= 1;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            moveDirection.x -= 1;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            moveDirection.x += 1;
+        }
+
+        if (moveDirection.magnitude > 1)
+        {
+            moveDirection.Normalize();
+        }
+
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 }

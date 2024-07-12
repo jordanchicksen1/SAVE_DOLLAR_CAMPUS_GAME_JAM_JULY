@@ -46,8 +46,8 @@
                 {
                     "name": "",
                     "id": "225bcd4e-dd21-4295-92dc-957da54e44c0",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
+                    "path": "Keyboard/W",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Move P1",
@@ -57,8 +57,8 @@
                 {
                     "name": "",
                     "id": "a1442423-2df7-4579-88c2-3232c48f73d8",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
+                    "path": "Keyboard/A",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Move P1",
@@ -68,8 +68,8 @@
                 {
                     "name": "",
                     "id": "afee01ae-2a84-4c41-bcfc-1343fa7cd68b",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
+                    "path": "Keyboard/S",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Move P1",
@@ -79,8 +79,8 @@
                 {
                     "name": "",
                     "id": "3392b53a-081f-43fd-9744-aded53ba1c77",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
+                    "path": "Keyboard/D",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Move P1",
@@ -90,7 +90,7 @@
                 {
                     "name": "",
                     "id": "472977b0-ee99-49c1-bd7d-a1c9de78dae0",
-                    "path": "<Keyboard>/l",
+                    "path": "Keyboard/L",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -167,7 +167,7 @@
                 {
                     "name": "",
                     "id": "7fcbc1a3-0a9b-4904-922f-2d62a9488181",
-                    "path": "<Keyboard>/w",
+                    "path": "Keyboard/W",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -178,7 +178,7 @@
                 {
                     "name": "",
                     "id": "808551f0-3c0e-4d0e-8a45-c3df1912cac0",
-                    "path": "<Keyboard>/a",
+                    "path": "Keyboard/A",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -189,7 +189,7 @@
                 {
                     "name": "",
                     "id": "e8205ceb-3ef7-4315-9504-0c1d299e8228",
-                    "path": "<Keyboard>/s",
+                    "path": "Keyboard/S",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -200,7 +200,7 @@
                 {
                     "name": "",
                     "id": "ef56deb5-5966-43b8-a242-d772c797540c",
-                    "path": "<Keyboard>/d",
+                    "path": "Keyboard/D",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -211,7 +211,7 @@
                 {
                     "name": "",
                     "id": "8856db09-a999-45e6-a02d-ab0622518090",
-                    "path": "<Keyboard>/l",
+                    "path": "Keyboard/L",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -244,5 +244,38 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "test",
+            "bindingGroup": "test",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "KeyBaord",
+            "bindingGroup": "KeyBaord",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
