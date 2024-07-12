@@ -23,9 +23,16 @@ public class Player1shoot : MonoBehaviour
             collected.transform.parent = Gun.transform;
             collected.transform.position = Gun.transform.position;
             collected.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            collected.tag = "Player2Ammo";
+
             Potion.Add(collected);
 
            
+        }
+
+        if (collision.gameObject.CompareTag("Player1Ammo"))
+        {
+            Debug.Log("IT Works");
         }
     }
 
