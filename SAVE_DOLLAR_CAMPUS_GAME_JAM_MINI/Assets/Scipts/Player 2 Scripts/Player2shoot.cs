@@ -5,25 +5,19 @@ using UnityEngine;
 public class Player2shoot : MonoBehaviour
 {
 
-    public GameObject Ammo;
-    private Rigidbody2D rb;
-    public int speed = 5;
+    public PotionSpawner SpawnerScript;
+    public GameObject Gun;
 
-    private void Start()
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-       
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (collision.gameObject.CompareTag("Item"))
         {
-            GameObject Bullet = Instantiate(Ammo, transform.position, Quaternion.identity);
-            Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.velocity = transform.right * speed;
-            }
+            collision.gameObject.transform.parent = Gun.transform;
+            SpawnerScript.Items.Add(collision.gameObject);
+            collision.gameObject.transform.position = Gun.transform.position;
+            collision.gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+
         }
     }
 }
