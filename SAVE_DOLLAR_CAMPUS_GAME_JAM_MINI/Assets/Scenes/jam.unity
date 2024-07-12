@@ -518,9 +518,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.18201482}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6698853
 --- !u!114 &1832919503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,8 +536,6 @@ MonoBehaviour:
   player: {fileID: 612133445}
   speed: 5
   stoppingDistance: 5
-  damageAmount: 10
-  characterController: {fileID: 0}
 --- !u!212 &1832919504
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -579,8 +577,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: adcf74d039583aa45b8ddca770df3fa2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -599,7 +597,7 @@ Transform:
   m_GameObject: {fileID: 1832919501}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.22, y: 4.3, z: 0}
+  m_LocalPosition: {x: -8.18, y: 4.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -630,7 +628,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
