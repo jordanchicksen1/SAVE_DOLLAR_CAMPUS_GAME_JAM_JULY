@@ -21,7 +21,17 @@ public class PLayer2Control : MonoBehaviour
         tr = GetComponent<TrailRenderer>();
         col2d = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        BackLook.SetActive(false);
+        FrontLook.SetActive(true);
+        RightLook.SetActive(false);
+        LeftLook.SetActive(false);
     }
+
+    public GameObject RightLook;
+    public GameObject LeftLook;
+    public GameObject BackLook;
+    public GameObject FrontLook;
 
     private void Update()
     {
@@ -37,18 +47,36 @@ public class PLayer2Control : MonoBehaviour
         if (Input.GetKey(KeyCode.Keypad8))
         {
             vertical = 1f;
+            BackLook.SetActive(true);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(false);
+
         }
         if (Input.GetKey(KeyCode.Keypad5))
         {
             vertical = -1f;
+            BackLook.SetActive(false);
+            FrontLook.SetActive(true);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(false);
+
         }
         if (Input.GetKey(KeyCode.Keypad4))
         {
             horizontal = -1f;
+            BackLook.SetActive(false);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(true);
         }
         if (Input.GetKey(KeyCode.Keypad6))
         {
             horizontal = 1f;
+            BackLook.SetActive(false);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(true);
+            LeftLook.SetActive(false);
         }
 
         // Normalize the direction to ensure consistent movement speed
@@ -56,7 +84,7 @@ public class PLayer2Control : MonoBehaviour
         horizontal = moveDirection.x;
         vertical = moveDirection.y;
 
-        Flip();
+        //Flip();
 
         if (Input.GetKeyDown(KeyCode.E) && canDash)
         {

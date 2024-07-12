@@ -21,7 +21,17 @@ public class SinglePlayerMovement : MonoBehaviour
         tr = GetComponent<TrailRenderer>();
         col2d = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        BackLook.SetActive(false);
+        FrontLook.SetActive(true);
+        RightLook.SetActive(false);
+        LeftLook.SetActive(false);
     }
+
+    public GameObject RightLook;
+    public GameObject LeftLook;
+    public GameObject BackLook;
+    public GameObject FrontLook;
 
     private void Update()
     {
@@ -37,18 +47,36 @@ public class SinglePlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             vertical = 1f;
+            BackLook.SetActive(true);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(false);
+
         }
         if (Input.GetKey(KeyCode.S))
         {
             vertical = -1f;
+            BackLook.SetActive(false);
+            FrontLook.SetActive(true);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(false);
+
         }
         if (Input.GetKey(KeyCode.A))
         {
             horizontal = -1f;
+            BackLook.SetActive(false);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(true);
         }
         if (Input.GetKey(KeyCode.D))
         {
             horizontal = 1f;
+            BackLook.SetActive(false);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(true);
+            LeftLook.SetActive(false);
         }
 
         // Normalize the direction to ensure consistent movement speed
@@ -56,7 +84,7 @@ public class SinglePlayerMovement : MonoBehaviour
         horizontal = moveDirection.x;
         vertical = moveDirection.y;
 
-        Flip();
+        //Flip();
 
         if (Input.GetKeyDown(KeyCode.E) && canDash)
         {
@@ -84,7 +112,7 @@ public class SinglePlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
-    private void Flip()
+    /*private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
@@ -93,7 +121,7 @@ public class SinglePlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
-    }
+    }*/
 
     private bool canDash = true;
     private bool IsDashing;
