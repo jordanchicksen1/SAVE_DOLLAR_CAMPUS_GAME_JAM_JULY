@@ -12,6 +12,7 @@ public class PotionSpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(ItemSpawner());
+        StartCoroutine(BotSpawner());
 
     }
 
@@ -20,8 +21,14 @@ public class PotionSpawner : MonoBehaviour
     {
         
     }
+    public GameObject Bots;
+    IEnumerator BotSpawner()
+    {
+        yield return new WaitForSeconds(Random.Range(10, 20));
+        Instantiate(Bots, Spawns[Random.Range(0, Spawns.Count)].position, Quaternion.identity);
 
-    
+        StartCoroutine(BotSpawner());
+    }
 
     IEnumerator ItemSpawner()
     {

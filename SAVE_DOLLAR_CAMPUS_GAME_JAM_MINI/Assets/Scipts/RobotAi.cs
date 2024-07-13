@@ -13,17 +13,13 @@ public class RobotAi : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    //public GameObject spriteUp;
-    //public GameObject spriteDown;
-    // public GameObject spriteLeft;
-    //public GameObject spriteRight;
-
-    // public bool isActive = false;
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+   
 
     private void Update()
     {
@@ -41,39 +37,7 @@ public class RobotAi : MonoBehaviour
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
 
-        // if (rb.velocity.x > 0)
-        // {
-        //    // Moving right
-        //   spriteRight.SetActive(true);
-        //   spriteLeft.SetActive(false);
-        //    spriteUp.SetActive(false);
-        //      spriteDown.SetActive(false);
-        // }
-        /// else if (rb.velocity.x < 0)
-        // {
-        // Moving left
-        //  spriteRight.SetActive(false);
-        //   spriteLeft.SetActive(true);
-        //     spriteUp.SetActive(false);
-        //    spriteDown.SetActive(false);
-        //  }
-
-        // if (rb.velocity.y > 0)
-        // {
-        // Moving up
-        //   spriteRight.SetActive(false);
-        //    spriteLeft.SetActive(false);
-        //    spriteUp.SetActive(true);
-        //      spriteDown.SetActive(false);
-        //  }
-        //else if (rb.velocity.y < 0)
-        // {
-        //    // Moving down
-        //   spriteRight.SetActive(false);
-        //   spriteLeft.SetActive(false);
-        //   spriteUp.SetActive(false);
-        //    spriteDown.SetActive(true);
-        // }
+       
 
        
     }

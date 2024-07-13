@@ -29,4 +29,16 @@ public class Player1Grab : MonoBehaviour
         }
     }
 
+    public GameObject Death;
+    
+
+    private void Update()
+    {
+        if (Health == 0)
+        {
+            Destroy(gameObject);
+            Death.SetActive(true);
+        }
+    }
+
 }
