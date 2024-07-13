@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6539312700779648587}
   - component: {fileID: 4441834635918457554}
   - component: {fileID: -7352465874914415492}
+  - component: {fileID: 2274335344295221770}
   m_Layer: 0
   m_Name: potion3
   m_TagString: Item
@@ -158,3 +159,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2274335344295221770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396686881648207709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9908ab721731d9a4788c4b801e0e77c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

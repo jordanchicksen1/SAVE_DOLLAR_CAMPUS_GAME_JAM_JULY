@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8983903332098093553}
   - component: {fileID: 4824754670124362853}
   - component: {fileID: 5848494231674541243}
+  - component: {fileID: 124529976994327359}
   m_Layer: 0
   m_Name: milk2
   m_TagString: Item
@@ -158,3 +159,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &124529976994327359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782217099484453549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9908ab721731d9a4788c4b801e0e77c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

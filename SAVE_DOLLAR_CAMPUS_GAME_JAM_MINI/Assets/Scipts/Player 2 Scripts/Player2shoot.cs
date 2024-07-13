@@ -16,25 +16,33 @@ public class Player2shoot : MonoBehaviour
         Potion = new List<GameObject>();
     }
 
+    private int CollectedItems ;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Item"))
         {
            // gameObject.tag = "Player1Ammo";
 
-            GameObject collected = collision.gameObject;
-            collected.transform.parent = Gun.transform;
-            collected.transform.position = Gun.transform.position;
-            collected.transform.localScale = new Vector3(0.5f, 0.5f, 1);
-            collected.tag = "Player1Ammo";
-            Potion.Add(collected);
+            CollectedItems++;
+            if (CollectedItems == 1)
+            {
+                GameObject collected = collision.gameObject;
+                collected.transform.parent = Gun.transform;
+                collected.transform.position = Gun.transform.position;
+                collected.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                collected.tag = "Player2Ammo";
+                Potion.Add(collected);
+            }
+            else 
+                { 
+                    return; 
+                }
+           
 
             
         }
-        if (collision.gameObject.CompareTag("Player2Ammo"))
-        {
-            Debug.Log("IT Works");
-        }
+        
     }
 
     private void Update()
@@ -49,6 +57,7 @@ public class Player2shoot : MonoBehaviour
             {
                 SH.velocity = Test.up * -10;
                 Potion.Clear(); // Clear the list after shooting
+                CollectedItems = 0;
             }
 
             

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3522206478652197877}
   - component: {fileID: 5011336949418624961}
   - component: {fileID: 7283894140750243449}
+  - component: {fileID: -6224465859838093162}
   m_Layer: 0
   m_Name: molotov
   m_TagString: Item
@@ -158,3 +159,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6224465859838093162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047254565391754501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9908ab721731d9a4788c4b801e0e77c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

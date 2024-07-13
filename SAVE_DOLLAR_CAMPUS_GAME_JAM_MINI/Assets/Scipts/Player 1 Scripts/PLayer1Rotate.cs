@@ -24,7 +24,7 @@ public class PLayer1Rotate : MonoBehaviour
         {
             RotationZ = -RotationSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.O))
+        if (Input.GetKey(KeyCode.I))
         {
             RotationZ = RotationSpeed * Time.deltaTime;
         }
