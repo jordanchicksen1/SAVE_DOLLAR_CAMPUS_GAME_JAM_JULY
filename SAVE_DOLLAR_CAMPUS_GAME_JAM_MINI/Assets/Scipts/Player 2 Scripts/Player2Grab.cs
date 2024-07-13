@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player2Grab : MonoBehaviour
 {
@@ -32,8 +33,14 @@ public class Player2Grab : MonoBehaviour
     {
         if (Health == 0)
         {
-            Destroy(gameObject);
             Death.SetActive(true);
+            StartCoroutine(Deaths());
         }
+    }
+
+    IEnumerator Deaths()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("P1Win");
     }
 }
