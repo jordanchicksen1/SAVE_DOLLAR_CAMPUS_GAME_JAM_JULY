@@ -16,5 +16,13 @@ public class Player2Grab : MonoBehaviour
             HPBar.transform.localScale -= new Vector3(0.1f, 0, 0);
 
         }
+
+        if (collision.gameObject.CompareTag("BOT"))
+        {
+            Health--;
+            Destroy(collision.gameObject);
+            HPBar.transform.localScale -= new Vector3(0.2f, 0, 0);
+
+        }
     }
 }

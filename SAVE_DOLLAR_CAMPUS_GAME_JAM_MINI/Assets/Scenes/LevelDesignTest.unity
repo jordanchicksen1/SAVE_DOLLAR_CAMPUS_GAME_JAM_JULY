@@ -8410,7 +8410,7 @@ GameObject:
   - component: {fileID: 911538309}
   m_Layer: 0
   m_Name: bot game jam
-  m_TagString: Untagged
+  m_TagString: BOT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8538,7 +8538,7 @@ Transform:
   m_GameObject: {fileID: 911538304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3063, y: -6.1905, z: 0}
+  m_LocalPosition: {x: -0.003, y: -0.034, z: 0}
   m_LocalScale: {x: 1.0046, y: 0.9346, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20014,6 +20014,8 @@ MonoBehaviour:
   Gun: {fileID: 353476662}
   Potion: []
   Test: {fileID: 1231301934}
+  Tester1: 0
+  Count: 0
 --- !u!114 &1826581964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20712,6 +20714,8 @@ MonoBehaviour:
   Gun: {fileID: 2126863114}
   Potion: []
   Test: {fileID: 1633698413}
+  Tester1: 0
+  Count: 0
 --- !u!114 &1871841636
 MonoBehaviour:
   m_ObjectHideFlags: 0

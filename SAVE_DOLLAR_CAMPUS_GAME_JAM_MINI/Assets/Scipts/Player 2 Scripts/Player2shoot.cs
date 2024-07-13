@@ -16,16 +16,16 @@ public class Player2shoot : MonoBehaviour
         Potion = new List<GameObject>();
     }
 
-    private int CollectedItems ;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Item"))
         {
-           // gameObject.tag = "Player1Ammo";
+            // gameObject.tag = "Player1Ammo";
 
-            CollectedItems++;
-            if (CollectedItems == 1)
+            Tester1 = true;
+            Count++;
+            if (Tester1 == true && Count == 1)
             {
                 GameObject collected = collision.gameObject;
                 collected.transform.parent = Gun.transform;
@@ -33,20 +33,39 @@ public class Player2shoot : MonoBehaviour
                 collected.transform.localScale = new Vector3(0.5f, 0.5f, 1);
                 collected.tag = "Player2Ammo";
                 Potion.Add(collected);
+                Tester1 = false;
             }
             else 
-                { 
-                    return; 
+                {
+              
+
+                return; 
                 }
-           
 
             
+
+
+
         }
         
     }
+    public bool Tester1 = false;
 
+    public int Count;
     private void Update()
     {
+
+        if (Potion.Count < 1)
+        {
+            Tester1 = false;
+            Count = 0;
+        }
+
+        if (Potion[0] == null)
+        {
+            Potion.Clear();
+        }
+
         if (Potion.Count > 0 && Input.GetKeyUp(KeyCode.RightControl))
         {
             GameObject BulletSpawn = Potion[0];
@@ -57,14 +76,15 @@ public class Player2shoot : MonoBehaviour
             {
                 SH.velocity = Test.up * -10;
                 Potion.Clear(); // Clear the list after shooting
-                CollectedItems = 0;
+                Count = 0;
+
             }
 
-            
 
             if (Potion.Count == 0)
             {
                 Destroy(BulletSpawn);
+                
                 //  Destroy(Shot);
             }
         }
@@ -72,6 +92,11 @@ public class Player2shoot : MonoBehaviour
         if (Potion.Count >1 )
         {
             Potion.RemoveAt(0);
+        }
+
+        if (Count < 0)
+        {
+            Count = 0;
         }
 
     }
