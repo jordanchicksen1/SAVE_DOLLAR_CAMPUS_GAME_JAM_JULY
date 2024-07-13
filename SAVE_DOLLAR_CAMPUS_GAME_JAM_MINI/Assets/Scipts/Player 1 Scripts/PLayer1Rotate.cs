@@ -5,7 +5,7 @@ using UnityEngine;
 public class PLayer1Rotate : MonoBehaviour
 {
     [SerializeField]
-    private int RotationSpeed = 100;
+    private int RotationSpeed = 90;
     // Start is called before the first frame update
     void Start()
     {
