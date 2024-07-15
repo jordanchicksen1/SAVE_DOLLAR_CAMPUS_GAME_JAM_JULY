@@ -24968,6 +24968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1795622895}
   - component: {fileID: 1795622896}
+  - component: {fileID: 1795622897}
   m_Layer: 0
   m_Name: exsplotion (1)
   m_TagString: Untagged
@@ -25042,6 +25043,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1795622897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795622894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4de6740a7941c488b91ad8268f8e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  maxScale: 5
+  minScale: 1
+  temp: {x: 0, y: 0}
+  increasing: 1
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1797025986
 GameObject:
   m_ObjectHideFlags: 0
@@ -28788,6 +28807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2331185834391243212, guid: 3452a42003194024890850586c4467aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5634555617180594997, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -28795,6 +28818,14 @@ PrefabInstance:
     - target: {fileID: 6990064743288801823, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: m_Name
       value: bot game jam
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127232111494008124, guid: 3452a42003194024890850586c4467aa, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1795622894}
+    - target: {fileID: 8127232111494008124, guid: 3452a42003194024890850586c4467aa, type: 3}
+      propertyPath: destroyDelay
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8127232111494008124, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: player.Array.data[0]

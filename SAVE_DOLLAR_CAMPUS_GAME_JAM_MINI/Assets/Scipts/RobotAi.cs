@@ -7,7 +7,7 @@ public class RobotAi : MonoBehaviour
     public Transform[] player, player2;
     public float speed = 3.0f;
     public float stoppingDistance = 2.0f;
-    [SerializeField] float destroyDelay = 0.1f;
+    [SerializeField] float destroyDelay = 1f;
     // public int damageAmount = 10;
     //public playerHealth playerHealth1;
     // public CharacterController characterController;
