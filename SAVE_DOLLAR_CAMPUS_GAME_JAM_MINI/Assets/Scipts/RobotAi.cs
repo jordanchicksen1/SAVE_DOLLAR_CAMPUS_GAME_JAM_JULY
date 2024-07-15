@@ -23,6 +23,8 @@ public class RobotAi : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        Ai = GetComponent<RobotAi>();
     }
 
    
@@ -54,7 +56,7 @@ public class RobotAi : MonoBehaviour
             //Bot.SetActive(false);
             explosion.SetActive(true);
             sr.sprite = null;
-            Ai.Ai = null;
+           // Ai.Ai = null;
         }
     }
 }
