@@ -44,19 +44,9 @@ public class RobotAi : MonoBehaviour
             Vector2 direction = (player2[0].position - transform.position).normalized;
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
-       
     }
+    
+    
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            Debug.Log("Bot detroyed");
-            Destroy(rb.gameObject, destroyDelay);
-            //Bot.SetActive(false);
-            explosion.SetActive(true);
-            sr.sprite = null;
-           // Ai.Ai = null;
-        }
-    }
+   
 }
