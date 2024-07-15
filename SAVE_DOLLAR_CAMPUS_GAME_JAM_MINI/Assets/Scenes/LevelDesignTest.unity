@@ -25259,7 +25259,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 10
   HPBar: {fileID: 1128234559}
-  Death: {fileID: 815848858}
+  DamageIndicater1: {fileID: 129008667}
+  DamageIndicater2: {fileID: 286047701}
+  DamageIndicater3: {fileID: 255645037}
+  DamageIndicater4: {fileID: 1152174460}
+  Death: {fileID: 1152174458}
   DeathList: []
 --- !u!114 &1826581965
 MonoBehaviour:
@@ -25962,6 +25966,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 10
   HPBar: {fileID: 1511633684}
+  DamageIndicater1: {fileID: 1017467372}
+  DamageIndicater2: {fileID: 244451226}
+  DamageIndicater3: {fileID: 1197578061}
+  DamageIndicater4: {fileID: 1837280892}
   Death: {fileID: 1384999154}
   DeathList:
   - {fileID: 1017467370}

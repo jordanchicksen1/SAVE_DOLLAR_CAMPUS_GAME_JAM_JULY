@@ -9,7 +9,29 @@ public class Player1Grab : MonoBehaviour
     public int Health = 10;
     public GameObject HPBar;
 
+    public Renderer DamageIndicater1;
+    public Renderer DamageIndicater2;
+    public Renderer DamageIndicater3;
+    public Renderer DamageIndicater4;
 
+    private void Start()
+    {
+    }
+
+    IEnumerator Damager()
+    {
+        yield return new WaitForSeconds(0);
+        DamageIndicater1.material.color = Color.red;
+        DamageIndicater2.material.color = Color.red;
+        DamageIndicater3.material.color = Color.red;
+        DamageIndicater4.material.color = Color.red;
+
+        yield return new WaitForSeconds(0.5f);
+        DamageIndicater1.material.color = Color.white;
+        DamageIndicater2.material.color = Color.white;
+        DamageIndicater3.material.color = Color.white;
+        DamageIndicater4.material.color = Color.white;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -19,6 +41,7 @@ public class Player1Grab : MonoBehaviour
             Health--;
             Destroy(collision.gameObject);
             HPBar.transform.localScale -= new Vector3(0.1f, 0, 0);
+            StartCoroutine(Damager());
 
 
         }
@@ -28,6 +51,8 @@ public class Player1Grab : MonoBehaviour
             Health -= 2;
             Destroy(collision.gameObject);
             HPBar.transform.localScale -= new Vector3(0.2f, 0, 0);
+            StartCoroutine(Damager());
+
 
         }
     }
