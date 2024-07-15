@@ -12,11 +12,13 @@ public class Player1Grab : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+
         if (collision.gameObject.CompareTag("Player2Ammo"))
         {
             Health--;
             Destroy(collision.gameObject);
-            HPBar.transform.localScale -= new Vector3(0.1f, 0, 0);
+            HPBar.transform.localScale -= new Vector3(0.05f, 0, 0);
 
 
         }

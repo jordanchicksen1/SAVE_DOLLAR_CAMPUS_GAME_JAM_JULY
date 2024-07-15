@@ -3881,6 +3881,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5634555617180594997, guid: 3452a42003194024890850586c4467aa, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6990064743288801823, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: m_Name
       value: bot game jam (2)
@@ -22762,6 +22766,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5634555617180594997, guid: 3452a42003194024890850586c4467aa, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6990064743288801823, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: m_Name
       value: bot game jam (1)
@@ -25232,6 +25240,7 @@ MonoBehaviour:
   Test: {fileID: 1231301934}
   Tester1: 0
   Count: 0
+  ColliderTest: {fileID: 0}
 --- !u!114 &1826581964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25931,6 +25940,7 @@ MonoBehaviour:
   Gun: {fileID: 2126863114}
   Potion: []
   Test: {fileID: 1633698413}
+  ColliderTest: {fileID: 0}
   Tester1: 0
   Count: 0
 --- !u!114 &1871841636
@@ -28676,6 +28686,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5634555617180594997, guid: 3452a42003194024890850586c4467aa, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6990064743288801823, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: m_Name
       value: bot game jam

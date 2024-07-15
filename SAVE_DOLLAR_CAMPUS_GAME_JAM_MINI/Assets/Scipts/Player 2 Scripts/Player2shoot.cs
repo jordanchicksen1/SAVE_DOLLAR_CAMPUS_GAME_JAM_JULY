@@ -16,9 +16,12 @@ public class Player2shoot : MonoBehaviour
         Potion = new List<GameObject>();
     }
 
+    public Collider2D ColliderTest;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        
+    
         if (collision.gameObject.CompareTag("Item"))
         {
             // gameObject.tag = "Player1Ammo";
@@ -28,10 +31,18 @@ public class Player2shoot : MonoBehaviour
             if (Tester1 == true && Count == 1)
             {
                 GameObject collected = collision.gameObject;
+
+                ColliderTest = collected.GetComponent<Collider2D>();
+
                 collected.transform.parent = Gun.transform;
                 collected.transform.position = Gun.transform.position;
                 collected.transform.localScale = new Vector3(0.5f, 0.5f, 1);
                 collected.tag = "Player2Ammo";
+
+                if (ColliderTest != null)
+                {
+                    ColliderTest.isTrigger = false;
+                }
                 Potion.Add(collected);
                 Tester1 = false;
             }
