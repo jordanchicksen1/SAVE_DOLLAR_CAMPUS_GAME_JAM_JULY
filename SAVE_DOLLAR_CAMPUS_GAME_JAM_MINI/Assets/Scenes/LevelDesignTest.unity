@@ -18599,7 +18599,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0009, y: -0.0087, z: 0}
-  m_LocalScale: {x: 0.96477515, y: 0.89270705, z: 0.8705}
+  m_LocalScale: {x: 1, y: 0.89270705, z: 0.8705}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1630297568}
@@ -22571,7 +22571,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0009, y: -0.0087, z: 0}
-  m_LocalScale: {x: 0.96477515, y: 0.89270705, z: 0.8705}
+  m_LocalScale: {x: 1, y: 0.89270705, z: 0.8705}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 60082831}
@@ -25236,7 +25236,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 353476662}
-  Potion: []
+  Potion:
+  - {fileID: 129008665}
+  - {fileID: 286047699}
+  - {fileID: 1152174458}
+  - {fileID: 255645035}
   Test: {fileID: 1231301934}
   Tester1: 0
   Count: 0
@@ -25256,6 +25260,7 @@ MonoBehaviour:
   Health: 10
   HPBar: {fileID: 1128234559}
   Death: {fileID: 815848858}
+  DeathList: []
 --- !u!114 &1826581965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25958,6 +25963,11 @@ MonoBehaviour:
   Health: 10
   HPBar: {fileID: 1511633684}
   Death: {fileID: 1384999154}
+  DeathList:
+  - {fileID: 1017467370}
+  - {fileID: 244451224}
+  - {fileID: 1197578059}
+  - {fileID: 1837280890}
 --- !u!1 &1878078270
 GameObject:
   m_ObjectHideFlags: 0

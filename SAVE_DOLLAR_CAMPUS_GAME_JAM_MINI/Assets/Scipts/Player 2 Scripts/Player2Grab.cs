@@ -17,13 +17,14 @@ public class Player2Grab : MonoBehaviour
             Health--;
             Destroy(collision.gameObject);
             
-            HPBar.transform.localScale -= new Vector3(0.05f, 0, 0);
+            HPBar.transform.localScale -= new Vector3(0.1f, 0, 0);
 
         }
 
         if (collision.gameObject.CompareTag("BOT"))
         {
-            Health--;
+            Health -= 2;
+
             Destroy(collision.gameObject);
             HPBar.transform.localScale -= new Vector3(0.2f, 0, 0);
 
@@ -31,11 +32,16 @@ public class Player2Grab : MonoBehaviour
     }
 
     public GameObject Death;
+    public List<GameObject> DeathList;
 
     private void Update()
     {
         if (Health == 0)
         {
+            foreach (GameObject obj in DeathList)
+            {
+                obj.SetActive(false);
+            }
             Death.SetActive(true);
             StartCoroutine(Deaths());
         }
