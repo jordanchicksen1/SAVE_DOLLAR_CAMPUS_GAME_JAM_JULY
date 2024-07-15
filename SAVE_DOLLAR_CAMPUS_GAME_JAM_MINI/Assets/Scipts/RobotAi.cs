@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RobotAi : MonoBehaviour
 {
     public Transform[] player, player2;
+
     public float speed = 3.0f;
     public float stoppingDistance = 2.0f;
-    [SerializeField] float destroyDelay = 1f;
+    [SerializeField] float destroyDelay = 0.0001f;
+
+    public GameObject explosion;
+
+    SpriteRenderer sr;
+    RobotAi Ai;
+    //public GameObject Bot;
    // public int damageAmount = 10;
     //public playerHealth playerHealth1;
    // public CharacterController characterController;
@@ -20,6 +28,8 @@ public class RobotAi : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        Ai = GetComponent<RobotAi>();
     }
 
 
@@ -43,6 +53,19 @@ public class RobotAi : MonoBehaviour
        
         Debug.Log(rb.velocity.x);
         Debug.Log(speed);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            Debug.Log("Bot detroyed");
+            Destroy(rb.gameObject, destroyDelay);
+            //Bot.SetActive(false);
+            explosion.SetActive(true);
+            sr.sprite = null;
+            Ai.Ai = null;
+        }
     }
 }
 
