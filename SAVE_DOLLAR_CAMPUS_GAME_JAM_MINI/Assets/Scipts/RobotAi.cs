@@ -7,7 +7,7 @@ public class RobotAi : MonoBehaviour
     public Transform[] player, player2;
     public float speed = 3.0f;
     public float stoppingDistance = 2.0f;
-    [SerializeField] float destroyDelay = 1f;
+    [SerializeField] float destroyDelay = 5f;
     // public int damageAmount = 10;
     //public playerHealth playerHealth1;
     // public CharacterController characterController;
@@ -45,8 +45,18 @@ public class RobotAi : MonoBehaviour
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
     }
-    
-    
 
-   
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Collided with Player");
+            
+            explosion.gameObject.SetActive(true);
+        }
+    }
+
+
+
+
 }
