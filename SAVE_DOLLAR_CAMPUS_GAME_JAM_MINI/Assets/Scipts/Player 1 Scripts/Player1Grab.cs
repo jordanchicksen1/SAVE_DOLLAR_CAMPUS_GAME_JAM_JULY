@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,8 +15,13 @@ public class Player1Grab : MonoBehaviour
     public Renderer DamageIndicater3;
     public Renderer DamageIndicater4;
 
+    public float destroyDelay = 1.0f;
+    SpriteRenderer sr;
+    public GameObject explosion;
+
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
     }
 
     IEnumerator Damager()
@@ -49,10 +55,11 @@ public class Player1Grab : MonoBehaviour
         if (collision.gameObject.CompareTag("BOT"))
         {
             Health -= 2;
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject, destroyDelay);
+            explosion.SetActive(true);
             HPBar.transform.localScale -= new Vector3(0.2f, 0, 0);
             StartCoroutine(Damager());
-
+            sr.sprite = null;
 
         }
     }

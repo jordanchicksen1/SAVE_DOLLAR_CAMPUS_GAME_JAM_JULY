@@ -25537,6 +25537,8 @@ MonoBehaviour:
   DamageIndicater2: {fileID: 286047701}
   DamageIndicater3: {fileID: 255645037}
   DamageIndicater4: {fileID: 1152174460}
+  destroyDelay: 1
+  explosion: {fileID: 1978247378}
   Death: {fileID: 1152174458}
   DeathList: []
 --- !u!114 &1826581965
@@ -29096,7 +29098,7 @@ PrefabInstance:
     - target: {fileID: 8127232111494008124, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: explosion
       value: 
-      objectReference: {fileID: 1978247378}
+      objectReference: {fileID: 0}
     - target: {fileID: 8127232111494008124, guid: 3452a42003194024890850586c4467aa, type: 3}
       propertyPath: destroyDelay
       value: 5
