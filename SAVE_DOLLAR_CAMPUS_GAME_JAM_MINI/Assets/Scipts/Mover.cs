@@ -13,7 +13,7 @@ public class Mover : MonoBehaviour
     private CharacterController controller;
 
     private Vector3 moveDirection = Vector3.zero;
-    private Vector2 inputVector = Vector2.zero;
+    public Vector2 inputVector = Vector2.zero;
 
     private void Awake()
     {
@@ -37,5 +37,8 @@ public class Mover : MonoBehaviour
         moveDirection *= MoveSpeed;
 
         controller.Move(moveDirection * Time.deltaTime);
+
+        
+
     }
 }

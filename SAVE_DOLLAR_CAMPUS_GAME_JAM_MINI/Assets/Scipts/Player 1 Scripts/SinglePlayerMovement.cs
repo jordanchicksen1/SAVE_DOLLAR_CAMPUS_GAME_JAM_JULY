@@ -14,9 +14,11 @@ public class SinglePlayerMovement : MonoBehaviour
     private TrailRenderer tr;
     private Collider2D col2d;
     private SpriteRenderer spriteRenderer;
-
+    private Mover movers;
     private void Start()
     {
+        movers = GetComponent<Mover>();
+
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
         col2d = GetComponent<Collider2D>();
@@ -44,6 +46,8 @@ public class SinglePlayerMovement : MonoBehaviour
         horizontal = 0f;
         vertical = 0f;
 
+
+
         if (Input.GetKey(KeyCode.W) )
         {
             vertical = 1f;
@@ -53,7 +57,7 @@ public class SinglePlayerMovement : MonoBehaviour
             LeftLook.SetActive(false);
 
         }
-        if (Input.GetKey(KeyCode.S) )
+        if (Input.GetKey(KeyCode.S))
         {
             vertical = -1f;
             BackLook.SetActive(false);
@@ -70,7 +74,7 @@ public class SinglePlayerMovement : MonoBehaviour
             RightLook.SetActive(false);
             LeftLook.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.D) )
+        if (Input.GetKey(KeyCode.D)  )
         {
             horizontal = 1f;
             BackLook.SetActive(false);
@@ -78,6 +82,8 @@ public class SinglePlayerMovement : MonoBehaviour
             RightLook.SetActive(true);
             LeftLook.SetActive(false);
         }
+
+        
 
         
 
