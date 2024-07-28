@@ -44,7 +44,7 @@ public class SinglePlayerMovement : MonoBehaviour
         horizontal = 0f;
         vertical = 0f;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) )
         {
             vertical = 1f;
             BackLook.SetActive(true);
@@ -53,7 +53,7 @@ public class SinglePlayerMovement : MonoBehaviour
             LeftLook.SetActive(false);
 
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) )
         {
             vertical = -1f;
             BackLook.SetActive(false);
@@ -62,7 +62,7 @@ public class SinglePlayerMovement : MonoBehaviour
             LeftLook.SetActive(false);
 
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) )
         {
             horizontal = -1f;
             BackLook.SetActive(false);
@@ -70,7 +70,7 @@ public class SinglePlayerMovement : MonoBehaviour
             RightLook.SetActive(false);
             LeftLook.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) )
         {
             horizontal = 1f;
             BackLook.SetActive(false);
@@ -78,6 +78,8 @@ public class SinglePlayerMovement : MonoBehaviour
             RightLook.SetActive(true);
             LeftLook.SetActive(false);
         }
+
+        
 
         // Normalize the direction to ensure consistent movement speed
         Vector2 moveDirection = new Vector2(horizontal, vertical).normalized;
