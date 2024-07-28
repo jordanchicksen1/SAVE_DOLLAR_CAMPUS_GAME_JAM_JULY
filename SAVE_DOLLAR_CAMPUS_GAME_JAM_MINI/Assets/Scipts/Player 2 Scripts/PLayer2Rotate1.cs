@@ -20,11 +20,11 @@ public class PLayer2Rotate : MonoBehaviour
         float RotationZ = 0;
 
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetButton("R2"))
         {
             RotationZ = -RotationSpeed * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetButton("L2"))
         {
             RotationZ = RotationSpeed * Time.deltaTime;
         }

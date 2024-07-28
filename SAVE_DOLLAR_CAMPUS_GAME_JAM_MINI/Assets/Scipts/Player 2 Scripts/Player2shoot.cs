@@ -77,11 +77,12 @@ public class Player2shoot : MonoBehaviour
             Potion.Clear();
         }
 
-        if (Potion.Count > 0 && Input.GetKeyUp(KeyCode.RightControl))
+        if (Potion.Count > 0 && Input.GetButton("P2"))
         {
             GameObject BulletSpawn = Potion[0];
             GameObject Shot = Instantiate(BulletSpawn, Gun.transform.position, Quaternion.identity);
             Rigidbody2D SH = Shot.GetComponent<Rigidbody2D>();
+            Destroy(Shot, 3f);
 
             if (SH != null)
             {
