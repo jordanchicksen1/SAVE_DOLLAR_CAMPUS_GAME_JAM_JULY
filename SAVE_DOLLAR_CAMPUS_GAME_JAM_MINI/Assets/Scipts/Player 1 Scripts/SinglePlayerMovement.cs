@@ -5,8 +5,11 @@ public class SinglePlayerMovement : MonoBehaviour
 {
     public float speed = 5f; // Movement speed
 
-    private float horizontal;
-    private float vertical;
+    public float horizontal;
+    public float vertical;
+
+    public Vector2 H;
+    public Vector2 V;
 
     private bool isFacingRight = true;
 
@@ -14,7 +17,7 @@ public class SinglePlayerMovement : MonoBehaviour
     private TrailRenderer tr;
     private Collider2D col2d;
     private SpriteRenderer spriteRenderer;
-    private Mover movers;
+    public Mover movers;
     private void Start()
     {
         movers = GetComponent<Mover>();
@@ -35,8 +38,10 @@ public class SinglePlayerMovement : MonoBehaviour
     public GameObject BackLook;
     public GameObject FrontLook;
 
-    private void Update()
+    public CharacterController characterControllers;
+    public void Update()
     {
+
         if (IsDashing || IsFading)
         {
             return;
@@ -47,41 +52,40 @@ public class SinglePlayerMovement : MonoBehaviour
         vertical = 0f;
 
 
-
-        if (Input.GetKey(KeyCode.W) )
+        //H.x = movers.inputVector.x;
+        // V.y = movers.inputVector.y;
+        if (characterControllers.velocity.x > 0)
         {
-            vertical = 1f;
+            BackLook.SetActive(false);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(true);
+            LeftLook.SetActive(false);
+        }
+
+        if (characterControllers.velocity.y > 0)
+        {
             BackLook.SetActive(true);
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
 
         }
-        if (Input.GetKey(KeyCode.S))
+        if (characterControllers.velocity.y < 0)
         {
-            vertical = -1f;
             BackLook.SetActive(false);
             FrontLook.SetActive(true);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
 
         }
-        if (Input.GetKey(KeyCode.A) )
+        if (characterControllers.velocity.x < 0)
         {
-            horizontal = -1f;
             BackLook.SetActive(false);
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.D)  )
-        {
-            horizontal = 1f;
-            BackLook.SetActive(false);
-            FrontLook.SetActive(false);
-            RightLook.SetActive(true);
-            LeftLook.SetActive(false);
-        }
+        
 
         
 

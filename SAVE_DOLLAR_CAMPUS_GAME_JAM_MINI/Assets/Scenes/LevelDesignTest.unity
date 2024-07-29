@@ -7371,6 +7371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 5
   playerIndex: 0
+  inputVector: {x: 0, y: 0}
 --- !u!1 &732696049
 GameObject:
   m_ObjectHideFlags: 0
@@ -20743,6 +20744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 5
   playerIndex: 1
+  inputVector: {x: 0, y: 0}
 --- !u!1 &1428929268
 GameObject:
   m_ObjectHideFlags: 0
@@ -23929,10 +23931,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  horizontal: 0
+  vertical: 0
+  H: {x: 0, y: 0}
+  V: {x: 0, y: 0}
+  movers: {fileID: 728494919}
   RightLook: {fileID: 286047699}
   LeftLook: {fileID: 129008665}
   BackLook: {fileID: 1152174458}
   FrontLook: {fileID: 255645035}
+  characterControllers: {fileID: 728494917}
   DashAbility: 0
   DashPower: 0
   DashTime: 0
@@ -24529,6 +24537,7 @@ MonoBehaviour:
   LeftLook: {fileID: 1837280890}
   BackLook: {fileID: 1017467370}
   FrontLook: {fileID: 244451224}
+  Player2CharacterController: {fileID: 1422077839}
   DashAbility: 0
   DashPower: 0
   DashTime: 0

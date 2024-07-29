@@ -30,6 +30,8 @@ public class Mover : MonoBehaviour
         inputVector = direction;
     }
 
+
+
     void Update()
     {
         moveDirection = new Vector3(inputVector.x, inputVector.y,0);

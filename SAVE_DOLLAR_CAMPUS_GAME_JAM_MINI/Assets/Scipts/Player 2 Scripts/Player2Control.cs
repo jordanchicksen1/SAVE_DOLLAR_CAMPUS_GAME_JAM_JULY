@@ -35,6 +35,7 @@ public class PLayer2Control : MonoBehaviour
     public GameObject BackLook;
     public GameObject FrontLook;
 
+    public CharacterController Player2CharacterController;
     private void Update()
     {
         if (IsDashing || IsFading)
@@ -46,41 +47,37 @@ public class PLayer2Control : MonoBehaviour
         horizontal = 0f;
         vertical = 0f;
 
-        if (Input.GetKey(KeyCode.Keypad8) || movers.inputVector.y > 0)
+        if (Player2CharacterController.velocity.y > 0)
         {
-            vertical = 1f;
             BackLook.SetActive(true);
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
 
         }
-        if (Input.GetKey(KeyCode.Keypad5) || movers.inputVector.y < 0)
+        if (Player2CharacterController.velocity.y < 0)
         {
-            vertical = -1f;
             BackLook.SetActive(false);
             FrontLook.SetActive(true);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
 
         }
-        if (Input.GetKey(KeyCode.Keypad4) || movers.inputVector.x < 0)
+        if (Player2CharacterController.velocity.x < 0)
         {
-            horizontal = -1f;
             BackLook.SetActive(false);
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.Keypad6) || movers.inputVector.x > 0)
+        if (Player2CharacterController.velocity.x > 0)
         {
-            horizontal = 1f;
+           
             BackLook.SetActive(false);
             FrontLook.SetActive(false);
             RightLook.SetActive(true);
             LeftLook.SetActive(false);
         }
-
 
 
 
