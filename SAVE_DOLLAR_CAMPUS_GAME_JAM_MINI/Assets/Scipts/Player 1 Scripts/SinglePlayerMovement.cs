@@ -38,6 +38,8 @@ public class SinglePlayerMovement : MonoBehaviour
     public GameObject BackLook;
     public GameObject FrontLook;
 
+    public GameObject Stop;
+
     public CharacterController characterControllers;
     public void Update()
     {
@@ -47,19 +49,18 @@ public class SinglePlayerMovement : MonoBehaviour
             return;
         }
 
-        // Check for key presses and adjust the movement variables accordingly
-        horizontal = 0f;
-        vertical = 0f;
+       
 
 
-        //H.x = movers.inputVector.x;
-        // V.y = movers.inputVector.y;
+        
         if (characterControllers.velocity.x > 0)
         {
             BackLook.SetActive(false);
             FrontLook.SetActive(false);
             RightLook.SetActive(true);
             LeftLook.SetActive(false);
+            Stop.SetActive(false);
+
         }
 
         if (characterControllers.velocity.y > 0)
@@ -68,6 +69,7 @@ public class SinglePlayerMovement : MonoBehaviour
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
+            Stop.SetActive(false);
 
         }
         if (characterControllers.velocity.y < 0)
@@ -76,6 +78,7 @@ public class SinglePlayerMovement : MonoBehaviour
             FrontLook.SetActive(true);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
+            Stop.SetActive(false);
 
         }
         if (characterControllers.velocity.x < 0)
@@ -84,12 +87,21 @@ public class SinglePlayerMovement : MonoBehaviour
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(true);
+            Stop.SetActive(false);
+
         }
-        
 
-        
+        if (characterControllers.velocity.y == 0 && characterControllers.velocity.x == 0)
+        {
+            BackLook.SetActive(false);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(false);
+            Stop.SetActive(true);
+        }
 
-        
+
+
 
         // Normalize the direction to ensure consistent movement speed
         Vector2 moveDirection = new Vector2(horizontal, vertical).normalized;
@@ -124,16 +136,7 @@ public class SinglePlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
 
-    /*private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
-    }*/
+    
 
     private bool canDash = true;
     private bool IsDashing;

@@ -35,6 +35,9 @@ public class PLayer2Control : MonoBehaviour
     public GameObject BackLook;
     public GameObject FrontLook;
 
+    public GameObject Stop;
+
+
     public CharacterController Player2CharacterController;
     private void Update()
     {
@@ -53,6 +56,7 @@ public class PLayer2Control : MonoBehaviour
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
+            Stop.SetActive(false);
 
         }
         if (Player2CharacterController.velocity.y < 0)
@@ -61,6 +65,7 @@ public class PLayer2Control : MonoBehaviour
             FrontLook.SetActive(true);
             RightLook.SetActive(false);
             LeftLook.SetActive(false);
+            Stop.SetActive(false);
 
         }
         if (Player2CharacterController.velocity.x < 0)
@@ -69,6 +74,8 @@ public class PLayer2Control : MonoBehaviour
             FrontLook.SetActive(false);
             RightLook.SetActive(false);
             LeftLook.SetActive(true);
+            Stop.SetActive(false);
+
         }
         if (Player2CharacterController.velocity.x > 0)
         {
@@ -77,6 +84,18 @@ public class PLayer2Control : MonoBehaviour
             FrontLook.SetActive(false);
             RightLook.SetActive(true);
             LeftLook.SetActive(false);
+            Stop.SetActive(false);
+
+        }
+
+        if (Player2CharacterController.velocity.y == 0 && Player2CharacterController.velocity.x == 0)
+        {
+            BackLook.SetActive(false);
+            FrontLook.SetActive(false);
+            RightLook.SetActive(false);
+            LeftLook.SetActive(false);
+            Stop.SetActive(true);
+
         }
 
 
@@ -86,7 +105,6 @@ public class PLayer2Control : MonoBehaviour
         horizontal = moveDirection.x;
         vertical = moveDirection.y;
 
-        //Flip();
 
         if (Input.GetKeyDown(KeyCode.E) && canDash)
         {

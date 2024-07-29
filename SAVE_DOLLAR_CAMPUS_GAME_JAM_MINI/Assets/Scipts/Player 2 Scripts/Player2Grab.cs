@@ -12,6 +12,8 @@ public class Player2Grab : MonoBehaviour
     public Renderer DamageIndicater2;
     public Renderer DamageIndicater3;
     public Renderer DamageIndicater4;
+    public Renderer DamageIndicater5;
+
 
     IEnumerator Damager()
     {
@@ -20,12 +22,17 @@ public class Player2Grab : MonoBehaviour
         DamageIndicater2.material.color = Color.red;
         DamageIndicater3.material.color = Color.red;
         DamageIndicater4.material.color = Color.red;
+        DamageIndicater5.material.color = Color.red;
+
 
         yield return new WaitForSeconds(0.5f);
         DamageIndicater1.material.color = Color.white;
         DamageIndicater2.material.color = Color.white;
         DamageIndicater3.material.color = Color.white;
         DamageIndicater4.material.color = Color.white;
+        DamageIndicater5.material.color = Color.white;
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -9,6 +9,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Mover mover;
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
