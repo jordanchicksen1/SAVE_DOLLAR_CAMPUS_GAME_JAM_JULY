@@ -86,7 +86,7 @@ public class Player2shoot : MonoBehaviour
 
             if (SH != null)
             {
-                SH.velocity = Test.up * -10;
+                SH.velocity = Test.up * -20;
                 Potion.Clear(); // Clear the list after shooting
                 Count = 0;
 
