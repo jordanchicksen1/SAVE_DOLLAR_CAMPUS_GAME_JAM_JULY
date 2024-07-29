@@ -15,6 +15,8 @@ public class Player1Grab : MonoBehaviour
     public Renderer DamageIndicater4;
     public Renderer DamageIndicater5;
 
+    public Renderer HP;
+
 
     private void Start()
     {
@@ -61,14 +63,23 @@ public class Player1Grab : MonoBehaviour
 
 
         }
+
+
     }
 
     public GameObject Death;
     public List<GameObject> DeathList;
 
 
+  
     private void Update()
     {
+        if (Health <= 5)
+        {
+            HP.material.color = Color.red;
+            
+        }
+
         if (Health == 0)
         {
             foreach (GameObject obj in DeathList)

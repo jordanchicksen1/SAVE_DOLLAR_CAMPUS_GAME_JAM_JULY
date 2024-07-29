@@ -25,7 +25,7 @@ public class PotionSpawner : MonoBehaviour
 
     IEnumerator ItemSpawner()
     {
-        yield return new WaitForSeconds(Random.Range(5,10));
+        yield return new WaitForSeconds(Random.Range(3,8));
         Instantiate(Items[Random.Range(0,Items.Count)], Spawns[Random.Range(0,Spawns.Count)].position, Quaternion.identity);
 
         StartCoroutine(ItemSpawner());
