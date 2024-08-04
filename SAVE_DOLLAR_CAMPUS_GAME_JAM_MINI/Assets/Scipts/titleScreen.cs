@@ -59,6 +59,6 @@ public class titleScreen : MonoBehaviour
 
     public void playButton()
     {
-        SceneManager.LoadScene("LevelDesignTest");
+        SceneManager.LoadScene("Lobby");
     }
 }
