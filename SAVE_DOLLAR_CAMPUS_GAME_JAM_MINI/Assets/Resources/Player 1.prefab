@@ -261,7 +261,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.5
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -726,6 +726,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -362350050447247268}
+  - {fileID: 7326037093712772111}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

@@ -27,10 +27,11 @@ public class SpawnPlayers : MonoBehaviourPunCallbacks
             {
                 PhotonNetwork.Instantiate(Player1.name, Player1Pos.position, Quaternion.identity);
             }
-            else if (playerCount == 2)
+            if (playerCount == 2)
             {
                 PhotonNetwork.Instantiate(Player2.name, Player2Pos.position, Quaternion.identity);
             }
+            
         }
         else
         {
