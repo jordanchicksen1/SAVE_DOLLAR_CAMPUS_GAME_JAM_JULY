@@ -15,23 +15,17 @@ public class PLayer1Rotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float RotationX = 0;
-        float RotationY = 0;
-        float RotationZ = 0;
+      
+            // Get input from the right joystick
+            float horizontal = Input.GetAxis("RightStickHorizontal");
+            float vertical = Input.GetAxis("RightStickVertical");
 
+            // Calculate the rotation vector
+            Vector3 rotation = new Vector3(0, 0, horizontal);
 
-        if (Input.GetButton("R1"))
-        {
-            RotationZ = -RotationSpeed * Time.deltaTime;
-        }
-        if (Input.GetButton("L1"))
-        {
-            RotationZ = RotationSpeed * Time.deltaTime;
-        }
-       
-
-        transform.Rotate(RotationX, RotationY, RotationZ);
-
+            // Apply the rotation
+            transform.Rotate(rotation * RotationSpeed * Time.deltaTime);
+        
 
 
     }

@@ -727,6 +727,10 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: -362350050447247268}
   - {fileID: 7326037093712772111}
+  - {fileID: 620116658813681327}
+  - {fileID: 8865841599822640689}
+  - {fileID: 7512835892541501073}
+  - {fileID: 3737587244918228287}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -940,6 +944,9 @@ GameObject:
   m_Component:
   - component: {fileID: 37719981856201058}
   - component: {fileID: 1270467061962744211}
+  - component: {fileID: 2982393120081571120}
+  - component: {fileID: 6776672790745196369}
+  - component: {fileID: 6127142189282908413}
   m_Layer: 0
   m_Name: Aim Parent
   m_TagString: Untagged
@@ -970,12 +977,64 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6858182314874081528}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bb4ef0e170814847a170ba4cc56bb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 120
+--- !u!114 &2982393120081571120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858182314874081528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23994cbd6fccd041a73db2479123cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+--- !u!114 &6776672790745196369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858182314874081528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 6127142189282908413}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &6127142189282908413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858182314874081528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
 --- !u!1 &7272358350410078509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,6 +1609,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 7f90a03872a982e42b145f1f396fc2f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7696824657251114929}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 7f90a03872a982e42b145f1f396fc2f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3737587244918228287}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 7f90a03872a982e42b145f1f396fc2f2, type: 3}
 --- !u!1 &2565596087804873986 stripped
 GameObject:
@@ -1577,6 +1639,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3737587244918228287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565596087804873986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!4 &3698244574544041313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 7f90a03872a982e42b145f1f396fc2f2, type: 3}
@@ -1670,6 +1750,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9075126076357225547}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 620116658813681327}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
 --- !u!1 &3430617119349836372 stripped
 GameObject:
@@ -1697,6 +1780,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &620116658813681327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430617119349836372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!4 &4563300689948955191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
@@ -1790,6 +1891,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2594967186280091731}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8865841599822640689}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
 --- !u!212 &641706975511836463 stripped
 SpriteRenderer:
@@ -1827,6 +1931,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8865841599822640689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979190657709689063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!1001 &7022107541160468286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1910,6 +2032,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 619e4b1d0cd0d654793df92899ba1576, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3144177348026179217}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 619e4b1d0cd0d654793df92899ba1576, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7512835892541501073}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 619e4b1d0cd0d654793df92899ba1576, type: 3}
 --- !u!212 &4362247942312264011 stripped
 SpriteRenderer:
@@ -1942,6 +2067,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7512835892541501073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391610152063385219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
 --- !u!4 &8528796872912135904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 619e4b1d0cd0d654793df92899ba1576, type: 3}
