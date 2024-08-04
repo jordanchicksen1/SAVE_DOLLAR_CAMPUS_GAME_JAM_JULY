@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Mover : MonoBehaviour
 {
+    PhotonView view;
+
     [SerializeField]
     private float MoveSpeed = 3f;
 
@@ -18,6 +21,7 @@ public class Mover : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
+        view = GetComponent<PhotonView>();
     }
 
     public int GetPlayerIndex()
@@ -34,11 +38,14 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        moveDirection = new Vector3(inputVector.x, inputVector.y,0);
-        moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= MoveSpeed;
+        if (view.IsMine)
+        {
+            moveDirection = new Vector3(inputVector.x, inputVector.y, 0);
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= MoveSpeed;
 
-        controller.Move(moveDirection * Time.deltaTime);
+            controller.Move(moveDirection * Time.deltaTime);
+        }
 
         
 
