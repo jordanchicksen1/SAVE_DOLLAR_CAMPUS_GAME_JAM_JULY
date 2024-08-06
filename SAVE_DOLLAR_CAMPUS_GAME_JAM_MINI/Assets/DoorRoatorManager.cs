@@ -26,7 +26,12 @@ public class DoorRoatorManager : MonoBehaviour
     public GameObject RightPoint;
     public GameObject LeftPoint;
     public GameObject DownPoint;
-   
+
+    public GameObject UpPoint1;
+    public GameObject RightPoint1;
+    public GameObject LeftPoint1;
+    public GameObject DownPoint1;
+
 
     private void Update()
     {
@@ -36,24 +41,32 @@ public class DoorRoatorManager : MonoBehaviour
         {
              UpPoint.SetActive(false);
              RightPoint.SetActive(true);
+            UpPoint1.SetActive(false);
+            RightPoint1.SetActive(true);
         }
 
         if (Timer > MaxTimeRight) 
         {
              RightPoint.SetActive(false);
              DownPoint.SetActive(true);
+            RightPoint1.SetActive(false);
+            DownPoint1.SetActive(true);
         }
 
         if (Timer > MaxTimeDown)
         {
              DownPoint.SetActive(false);
              LeftPoint.SetActive(true);
+            DownPoint1.SetActive(false);
+            LeftPoint1.SetActive(true);
         }
 
         if(Timer > MaxTimeLeft) 
         {
             LeftPoint.SetActive(false);
             UpPoint.SetActive(true);
+            LeftPoint1.SetActive(false);
+            UpPoint1.SetActive(true);
             Timer = 0;
         }
     }
