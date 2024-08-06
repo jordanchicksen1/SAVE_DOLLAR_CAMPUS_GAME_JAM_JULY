@@ -16,10 +16,11 @@ public class RightStickRotation : MonoBehaviour
 
     void Update()
     {
-        
+
 
         
             LookAround();
+        
         
 
         
@@ -27,17 +28,20 @@ public class RightStickRotation : MonoBehaviour
 
     private void LookAround()
     {
-        // Get horizontal and vertical look inputs from the right joystick
-        float lookX = Input.GetAxis("RightStickZ");
+        if (view.IsMine)
+        {
+            // Get horizontal and vertical look inputs from the right joystick
+            float lookX = Input.GetAxis("RightStickZ");
 
-        // Horizontal rotation: Rotate the player object around the y-axis
-        transform.Rotate(0, 0, lookX * rotationSpeed * Time.deltaTime );
+            // Horizontal rotation: Rotate the player object around the y-axis
+            transform.Rotate(0, 0, lookX * rotationSpeed * Time.deltaTime);
 
-        // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
+            // Vertical rotation: Adjust the vertical look rotation and clamp it to prevent flipping
 
 
-        // Apply the clamped vertical rotation to the player camera
-        Debug.Log(lookX);
+            // Apply the clamped vertical rotation to the player camera
+            Debug.Log(lookX);
+        }
 
     }
 }

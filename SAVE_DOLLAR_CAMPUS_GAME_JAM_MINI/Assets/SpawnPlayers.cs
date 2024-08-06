@@ -9,41 +9,20 @@ public class SpawnPlayers : MonoBehaviourPunCallbacks
     public GameObject Player1;
     public GameObject Player2;
 
-    public Transform Player1Pos;
-    public Transform Player2Pos;
+    public Transform[] Pos;
 
     private void Start()
     {
-        SpawnPlayer();
+        Transform randomPosition = Pos[Random.Range(0, Pos.Length)];
+        PhotonNetwork.Instantiate(Player1.name, randomPosition.position, Quaternion.identity);
+
     }
 
-    private void SpawnPlayer()
-    {
-        if (PhotonNetwork.IsConnected)
-        {
-            int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
 
-           
-                PhotonNetwork.Instantiate(Player1.name, Player1Pos.position, Quaternion.identity);
-            
-            /*else 
-            {
-                PhotonNetwork.Instantiate(Player2.name, Player2Pos.position, Quaternion.identity);
-            }*/
-            
-        }
-        else
-        {
-            Debug.LogError("Photon is not connected.");
-        }
-    }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        base.OnPlayerEnteredRoom(newPlayer);
-        if (PhotonNetwork.IsMasterClient)
-        {
-            SpawnPlayer();
-        }
-    }
+
+
+
+
+
 }
