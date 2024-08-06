@@ -8092,6 +8092,9 @@ MonoBehaviour:
   Player2: {fileID: 3183017224021581539, guid: f7073f04a45111d458b9b3416d16dde5, type: 3}
   Player1Pos: {fileID: 193634285}
   Player2Pos: {fileID: 1473682946}
+  Players:
+  - {fileID: 5228230558975373661, guid: 7ad59afa700b81044bba025c39a16935, type: 3}
+  - {fileID: 3183017224021581539, guid: f7073f04a45111d458b9b3416d16dde5, type: 3}
 --- !u!4 &946394323
 Transform:
   m_ObjectHideFlags: 0
