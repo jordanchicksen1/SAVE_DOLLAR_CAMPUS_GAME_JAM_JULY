@@ -19,14 +19,17 @@ public class RobotAi : MonoBehaviour
 
     SpriteRenderer sr;
     RobotAi Ai;
+    private GameObject Parent;
 
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         Ai = GetComponent<RobotAi>();
         Players = GameObject.FindGameObjectWithTag("Player");
+
+       
     }
 
    
@@ -46,6 +49,14 @@ public class RobotAi : MonoBehaviour
             Vector2 direction = (Players.transform.position - transform.position).normalized;
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
+        Transform parentTransform = transform.parent;
+
+        Parent = parentTransform.gameObject;
+
+
+       // Parent.transform.position = transform.position;
+
+
     }
     
     
