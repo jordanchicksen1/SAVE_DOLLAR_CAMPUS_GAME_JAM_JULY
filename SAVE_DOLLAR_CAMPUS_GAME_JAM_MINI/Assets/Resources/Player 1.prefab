@@ -633,7 +633,9 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -362350050447247268}
+  - {fileID: 8915467362723098259}
   - {fileID: 620116658813681327}
+  - {fileID: 132003786497448356}
   - {fileID: 8865841599822640689}
   - {fileID: 7512835892541501073}
   - {fileID: 3737587244918228287}
@@ -941,9 +943,10 @@ GameObject:
   - component: {fileID: 5910313276797874612}
   - component: {fileID: 7682202343348670135}
   - component: {fileID: 4050690527075890545}
+  - component: {fileID: 8915467362723098259}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1289,6 +1292,22 @@ MonoBehaviour:
   Tester1: 0
   Count: 0
   ColliderTest: {fileID: 0}
+--- !u!114 &8915467362723098259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272358350410078509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &8591132600530395161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1661,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 620116658813681327}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 132003786497448356}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}
 --- !u!1 &3430617119349836372 stripped
 GameObject:
@@ -1687,6 +1709,22 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &132003786497448356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430617119349836372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
 --- !u!4 &4563300689948955191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: bfab6ef95c2ec6543ba84cf611e4f39f, type: 3}

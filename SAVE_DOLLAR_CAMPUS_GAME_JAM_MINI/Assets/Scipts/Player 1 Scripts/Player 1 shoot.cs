@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Player1shoot : MonoBehaviour
 {
@@ -8,11 +9,15 @@ public class Player1shoot : MonoBehaviour
     private Rigidbody2D rb;
     public List<GameObject> Potion;
     public Transform Test;
+    PhotonView view;
+
+
 
 
     private void Start()
     {
         Potion = new List<GameObject>();
+        view = GetComponent<PhotonView>();
     }
     public bool Tester1 = false;
     public int Count;
@@ -78,43 +83,45 @@ public class Player1shoot : MonoBehaviour
         {
             
         }
-
-        if (Potion.Count > 0 && Input.GetButton("P1"))
+        if (view.IsMine)
         {
-            GameObject BulletSpawn = Potion[0];
-            GameObject Shot = Instantiate(BulletSpawn, Gun.transform.position, Quaternion.identity);
-            Rigidbody2D SH = Shot.GetComponent<Rigidbody2D>();
-            Destroy(Shot, 3f);
-
-            if (SH != null)
+            if (Potion.Count > 0 && Input.GetButton("R2"))
             {
-                SH.velocity = Test.up * -20;
-                Potion.Clear(); // Clear the list after shooting
-                Tester1 = false;
+                GameObject BulletSpawn = Potion[0];
+                GameObject Shot = Instantiate(BulletSpawn, Gun.transform.position, Quaternion.identity);
+                Rigidbody2D SH = Shot.GetComponent<Rigidbody2D>();
+                Destroy(Shot, 3f);
+
+                if (SH != null)
+                {
+                    SH.velocity = Test.up * -20;
+                    Potion.Clear(); // Clear the list after shooting
+                    Tester1 = false;
+                    Count = 0;
+
+                }
+
+
+
+                if (Potion.Count == 0)
+                {
+                    Destroy(BulletSpawn);
+
+                }
+            }
+
+
+
+
+            if (Potion.Count > 1)
+            {
+                Potion.RemoveAt(0);
+            }
+
+            if (Count < 0)
+            {
                 Count = 0;
-
             }
-
-            
-
-            if (Potion.Count == 0)
-            {
-                Destroy(BulletSpawn);
-
-            }
-        }
-
-     
-        
-
-        if (Potion.Count > 1)
-        {
-            Potion.RemoveAt(0);
-        }
-
-        if (Count < 0)
-        {
-            Count = 0;
         }
 
     }

@@ -14,8 +14,8 @@ public class SpawnPlayers : MonoBehaviourPunCallbacks
     private void Start()
     {
         Transform randomPosition = Pos[Random.Range(0, Pos.Length)];
-        PhotonNetwork.Instantiate(Player1.name, randomPosition.position, Quaternion.identity);
-
+        GameObject Player = PhotonNetwork.Instantiate(Player1.name, randomPosition.position, Quaternion.identity);
+        Player.tag = "Player";
     }
 
 

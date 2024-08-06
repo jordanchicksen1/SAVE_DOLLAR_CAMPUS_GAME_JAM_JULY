@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RobotAi : MonoBehaviour
 {
-    public Transform[] player, player2;
+    private GameObject Players;
+
     public float speed = 3.0f;
     public float stoppingDistance = 2.0f;
     [SerializeField] float destroyDelay = 1f;
@@ -25,23 +26,24 @@ public class RobotAi : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         Ai = GetComponent<RobotAi>();
+        Players = GameObject.FindGameObjectWithTag("Player");
     }
 
    
 
     private void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player[0].position);
+        float distanceToPlayer = Vector2.Distance(transform.position, Players.transform.position);
         if (distanceToPlayer < stoppingDistance)
         {
-            Vector2 direction = (player[0].position - transform.position).normalized;
+            Vector2 direction = (Players.transform.position - transform.position).normalized;
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
 
-        float distanceToPlayer2 = Vector2.Distance(transform.position, player2[0].position);
+        float distanceToPlayer2 = Vector2.Distance(transform.position, Players.transform.position);
         if (distanceToPlayer2 < stoppingDistance)
         {
-            Vector2 direction = (player2[0].position - transform.position).normalized;
+            Vector2 direction = (Players.transform.position - transform.position).normalized;
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
     }
