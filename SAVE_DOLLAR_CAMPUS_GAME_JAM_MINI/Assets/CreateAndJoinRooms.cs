@@ -26,6 +26,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public PlayerItem playerItemPrefab;
     public Transform PlayerItemParent;
 
+    public GameObject PlayButton;
 
     private void Start()
     {
@@ -138,6 +139,23 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         UpdatePlayerList();
+    }
+
+    public void Update()
+    {
+        
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
+        {
+            PlayButton.SetActive(true);
+        } else
+        {
+            PlayButton.SetActive(false);
+        }
+    }
+
+    public void OnclickPlayButton()
+    {
+        PhotonNetwork.LoadLevel("LevelDesignTest");
     }
 
 }
