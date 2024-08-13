@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.54, y: -2.37}
+  m_AnchoredPosition: {x: -4.1, y: -5.95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5107989399783456249
@@ -571,7 +571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.92, y: -2.37}
+  m_AnchoredPosition: {x: -0.16, y: -5.93}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3186019308050554828
@@ -700,7 +700,7 @@ RectTransform:
   - {fileID: 744553227791848267}
   - {fileID: 7944076171535025199}
   - {fileID: 7191750874257819579}
-  - {fileID: 6871647262350617187}
+  - {fileID: 4616805932698139109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -721,13 +721,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: {fileID: 4285407065003631146}
-  HighlightColor: {r: 0.97735846, g: 0.064542405, b: 0.064542405, a: 0.9254902}
+  HighlightColor: {r: 0.97735846, g: 0.55137765, b: 0.55137765, a: 0.9254902}
   BackButton: {fileID: 2728576085794328288}
   NextButton: {fileID: 3471028153305145002}
-  playerAvatar: {fileID: 8429449443299037655}
-  avatars:
-  - {fileID: 21300000, guid: 6799c5c96704bc24d8d3ccc4694d36be, type: 3}
---- !u!1 &7840025559771783468
+  playerAvatar: {fileID: 564532002268476307}
+  Avatars:
+  - {fileID: 21300000, guid: 3d8696b803c487a40859982f3c04923d, type: 3}
+  - {fileID: -1257023194219071442, guid: 7f90a03872a982e42b145f1f396fc2f2, type: 3}
+  - {fileID: 4637872625755820814, guid: 814397a8bcb154941a310e862efc309c, type: 3}
+--- !u!1 &6874904922595371447
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,50 +737,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6871647262350617187}
-  - component: {fileID: 5290243624940851860}
-  - component: {fileID: 8429449443299037655}
+  - component: {fileID: 4616805932698139109}
+  - component: {fileID: 8366775316887270135}
+  - component: {fileID: 564532002268476307}
   m_Layer: 0
-  m_Name: Player Avatar
+  m_Name: PlayerAvater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6871647262350617187
+--- !u!224 &4616805932698139109
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840025559771783468}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -514.0095}
-  m_LocalScale: {x: 0.09, y: 0.09, z: 0.033439998}
-  m_ConstrainProportionsScale: 1
+  m_GameObject: {fileID: 6874904922595371447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5551760406611622235}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.21, y: -0.75}
+  m_AnchoredPosition: {x: -2.15, y: -0.69}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5290243624940851860
+--- !u!222 &8366775316887270135
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840025559771783468}
+  m_GameObject: {fileID: 6874904922595371447}
   m_CullTransparentMesh: 1
---- !u!114 &8429449443299037655
+--- !u!114 &564532002268476307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840025559771783468}
+  m_GameObject: {fileID: 6874904922595371447}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}

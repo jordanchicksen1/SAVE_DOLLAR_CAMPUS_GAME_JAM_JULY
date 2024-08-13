@@ -17,7 +17,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
 
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
     public Image playerAvatar;
-    public Sprite[] avatars;
+    public Sprite[] Avatars;
 
     Player player;
 
@@ -25,8 +25,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         backgroundImage = GetComponent<Image>();
 
-        playerProperties["name"] = "Liam";
-        playerProperties["age"] = 15;
+       
     }
     public void SetPlayerInfo(Player _player)
     {
@@ -46,7 +45,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         if ((int)playerProperties["playerAvatar"] == 0)
         {
-            playerProperties["playerAvatar"] = avatars.Length - 1;
+            playerProperties["playerAvatar"] = Avatars.Length - 1;
         } else
         {
             playerProperties["playerAvatar"] = (int)playerProperties["playerAvatar"] - 1;
@@ -57,7 +56,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
 
     public void OnclickNextArrow()
     {
-        if ((int)playerProperties["playerAvatar"] == avatars.Length -1)
+        if ((int)playerProperties["playerAvatar"] == Avatars.Length - 1)
         {
             playerProperties["playerAvatar"] = 0;
         }
@@ -80,13 +79,13 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         if (player.CustomProperties.ContainsKey("playerAvatar"))
         {
-            playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar00"]];
+            playerAvatar.sprite = Avatars[(int)player.CustomProperties["playerAvatar"]];
             playerProperties["playerAvatar"] = (int)player.CustomProperties["playerAvatar"];
         } else 
         {
             playerProperties["playerAvatar"] = 0;
         }
     }
-
+     
 
 }
