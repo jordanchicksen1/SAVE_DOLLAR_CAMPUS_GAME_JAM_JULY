@@ -726,9 +726,7 @@ MonoBehaviour:
   NextButton: {fileID: 3471028153305145002}
   playerAvatar: {fileID: 564532002268476307}
   Avatars:
-  - {fileID: 21300000, guid: 3d8696b803c487a40859982f3c04923d, type: 3}
-  - {fileID: -1257023194219071442, guid: 7f90a03872a982e42b145f1f396fc2f2, type: 3}
-  - {fileID: 4637872625755820814, guid: 814397a8bcb154941a310e862efc309c, type: 3}
+  - {fileID: 21300000, guid: 6799c5c96704bc24d8d3ccc4694d36be, type: 3}
 --- !u!1 &6874904922595371447
 GameObject:
   m_ObjectHideFlags: 0
