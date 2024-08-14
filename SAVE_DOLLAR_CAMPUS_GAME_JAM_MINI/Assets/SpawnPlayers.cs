@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class SpawnPlayers : MonoBehaviourPunCallbacks
 {
-    public GameObject Player1;
-    public GameObject Player2;
+    public GameObject[] playerPrefabs;
+    public Transform[] spawnPoints;
 
-    public Transform[] Pos;
+
 
     private void Start()
     {
-        Transform randomPosition = Pos[Random.Range(0, Pos.Length)];
-        GameObject Player = PhotonNetwork.Instantiate(Player1.name, randomPosition.position, Quaternion.identity);
-        Player.tag = "Player";
+        int randomNumber = Random.Range(0, spawnPoints.Length);
+        Transform spawnPoint = spawnPoints[randomNumber];
+
+        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+        PhotonNetwork.Instantiate(playerToSpawn.name , spawnPoint.position, Quaternion.identity);
+
+        
     }
 
 
